@@ -8,7 +8,7 @@ import { PHOTO, NOIMG } from '@utils/constant'
 import { useAuthContext } from '@hooks/useAuthContext'
 import useApi from '@api/useApi'
 
-const ContentInfoModify = () => {
+const ContentInfoModify = ({ onClose }) => {
   const { imgApi } = useApi()
   const { state, handleModifyUserInfo } = useAuthContext()
   const { userData } = state
@@ -27,6 +27,7 @@ const ContentInfoModify = () => {
       }
 
       await handleModifyUserInfo(userInfo)
+      onClose()
     },
   })
 

@@ -6,7 +6,7 @@ import ContentInfoModify from './contents/ContentInfoModify'
 const ModalInfoModify = ({ visible, onClose }) => {
   return (
     <Modal visible={visible} onClose={onClose} className="modal">
-      <ContentInfoModify />
+      <ContentInfoModify onClose={onClose} />
     </Modal>
   )
 }
