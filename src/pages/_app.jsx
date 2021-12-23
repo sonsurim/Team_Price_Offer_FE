@@ -5,10 +5,17 @@ import AuthProvider from '@contexts/AuthProvider'
 import AxiosProvider from '@contexts/AxiosProvider'
 import { Provider as BusProvider } from 'react-bus'
 import NextNProgress from 'nextjs-progressbar'
+import Head from 'next/head'
 
 function MyApp({ Component, pageProps }) {
   return (
     <>
+      <Head>
+        <meta charset="UTF-8" />
+        <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+        <title>구매자가 제안해요, Offer!</title>
+      </Head>
       <NextNProgress color="#F74F2A" />
       <LoadingProvider>
         <AxiosProvider>
