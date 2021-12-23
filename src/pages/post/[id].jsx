@@ -20,6 +20,7 @@ import { useAuthContext } from '@hooks/useAuthContext'
 import { timeForToday } from '@utils/functions'
 import { USER } from '@utils/constant'
 import { STATUSLIST } from '@data/dummy/postStatusdialogList'
+import { useRouter } from 'next/router'
 
 export const getServerSideProps = async context => {
   return {
@@ -31,6 +32,7 @@ export const getServerSideProps = async context => {
 const { setItem } = useStorage()
 
 const Post = ({ postId, data }) => {
+  const router = useRouter()
   const { articleApi } = useApi()
   const { state } = useAuthContext()
   const userId = state.userData.id
@@ -266,7 +268,11 @@ const Post = ({ postId, data }) => {
             </div>
             <div className="post-info-wrapper">
               <div className="post-info">
-                <div className="post-info-user">
+                <div
+                  className="post-info-user"
+                  onClick={() =>
+                    router.push(`/profile/${postData.author.id}/sale`)
+                  }>
                   <Avatar
                     src={postData.author.profileImageUrl || USER}
                     style={{ width: '46.97px', height: '47px' }}

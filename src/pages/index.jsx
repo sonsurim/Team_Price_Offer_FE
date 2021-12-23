@@ -23,6 +23,7 @@ import { useCallback, useEffect, useState } from 'react'
 import { articleApi } from '@api/apis'
 import { useAuthContext } from '@hooks/useAuthContext'
 import { debounce } from 'lodash'
+import swal from 'sweetalert'
 
 const Main = () => {
   const categoryList = [
@@ -144,7 +145,13 @@ const Main = () => {
                 className="category-icn"
                 src={categoryList.src}
                 alt={categoryList.text}
-                //   onClick={categoryClick(categoryList)}
+                onClick={() =>
+                  swal({
+                    title: '카테고리 검색은 서비스 예정입니다!',
+                    icon: 'error',
+                    button: '닫기',
+                  })
+                }
               />
               <div className="category-text">{categoryList.text}</div>
             </div>
