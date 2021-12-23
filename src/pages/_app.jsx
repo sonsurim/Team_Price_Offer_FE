@@ -6,8 +6,16 @@ import AxiosProvider from '@contexts/AxiosProvider'
 import { Provider as BusProvider } from 'react-bus'
 import NextNProgress from 'nextjs-progressbar'
 import Head from 'next/head'
+import { useEffect } from 'react'
+import { useRouter } from 'next/router'
 
 function MyApp({ Component, pageProps }) {
+  const router = useRouter()
+
+  useEffect(() => {
+    router.push(router.asPath)
+  }, [])
+
   return (
     <>
       <Head>
